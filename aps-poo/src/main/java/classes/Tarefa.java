@@ -8,15 +8,21 @@ public class Tarefa {
     public Operador funcionario;
     public String status;
     
-    public Tarefa(String tit, String desc, LocalDate prz, Operador func) {
+    public Tarefa(String tit, String desc, LocalDate prz) {
         this.titulo = tit;
         this.descricao = desc;
         this.prazo = prz;
-        this.funcionario = func;
+        this.funcionario = null;
         this.status = "Pendente";
     }
     
     // ---------- getter e setter ----------
     
-    // add as funcoes
+    public void setFuncionario(Operador func) {
+        this.funcionario = func;
+    }
+    
+    public void alteraStatus() {
+        this.status = "Concluída";
+    }
 }

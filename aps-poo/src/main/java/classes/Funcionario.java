@@ -5,6 +5,9 @@ public class Funcionario {
     public String cpf;
     private float salario;
     public String funcao;
+    public int id;
+    public String login;
+    public String senha;
     
     // ---------- getters e setters ----------
     
