@@ -5,7 +5,6 @@
 - [Sarah](https://github.com/saroka11)
 - [Laura](https://github.com/lauraTchaly)
 - [João](https://github.com/JayfckZ)
-- [Domingues](https://github.com/Domingsss)
 - [Eduardo](https://github.com/Dudubzrj)
 
 ## Status do Projeto
@@ -14,16 +13,21 @@
   
 - **Diagramas**:
   - Finalizar diagrama de classes
-  - Construir diagrama de casos de uso
+  - Construir diagrama de casos de uso (feito)
 
 - **Código**:
-  - Finalizar classes
+  - Finalizar classes (feito)
   - Implementar a lógica de operação
   - Desenvolver interfaces
 
 ### Diagramas
 
 <figure>
-  <img src="documentação/diagrama_classes.png" alt="Diagram de Classes" width="500"/>
   <figcaption>Diagrama de Classes</figcaption>
+  <img src="documentação/diagrama_classes.png" alt="Diagrama de Classes" width="500"/>
+</figure>
+
+<figure>
+  <figcaption>Diagrama de Casos de Uso</figcaption>
+  <img src="documentação/diagrama_casos.png" alt="Diagrama de Casos de Uso" width="500"/>
 </figure>
