@@ -156,10 +156,8 @@ public class TelaCadastroTarefa extends javax.swing.JInternalFrame {
         
         ***************************
         */
-        Operador funcionario;
-        String status;
        
-        Tarefa tarf = new Tarefa(titulo, descricao, prazo, funcionario, status);
+        Tarefa tarf = new Tarefa(titulo, descricao, prazo);
         Empresa.addTarefa(tarf);
         Empresa.salvarTarefas();
                 
