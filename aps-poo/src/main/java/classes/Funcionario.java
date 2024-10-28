@@ -2,7 +2,7 @@ package classes;
 
 public class Funcionario {
     public String nome;
-    public String cpf;
+    private String cpf;
     private float salario;
     public String funcao;
     public int id;

@@ -3,12 +3,14 @@ package classes;
 public class Gerente extends Funcionario {
     public float bonus;
     
-    public Gerente(String nm, String cpf, float sal, String func, float bns) {
+    public Gerente(String nm, String cpf, float sal, String func, float bns, String login, String senha) {
         this.nome = nm;
-        this.cpf = cpf;
+        setCpf(cpf);
         this.setSalario(sal);
         this.funcao = func;
         this.bonus = bns;
+        this.login = login;
+        this.senha = senha;
         this.id = 1;
     }
     

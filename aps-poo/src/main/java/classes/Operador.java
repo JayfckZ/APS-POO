@@ -4,12 +4,14 @@ import java.util.ArrayList;
 public class Operador extends Funcionario {
     public ArrayList<Tarefa> tarefas;
     
-    public Operador(String nm, String cpf, float sal, String func) {
+    public Operador(String nm, String cpf, float sal, String func, String login, String senha) {
         this.nome = nm;
-        this.cpf = cpf;
+        setCpf(cpf);
         this.setSalario(sal);
         this.funcao = func;
         this.tarefas = new ArrayList<>();
+        this.login = login;
+        this.senha = senha;
         this.id = 0;
     }
     

@@ -7,6 +7,7 @@ import classes.Empresa;
 import classes.Gerente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import classes.*;
 
 
 
@@ -37,18 +38,18 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
         cargo_func = new javax.swing.JTextField();
         save_button_func = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        login_func = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         cpf_func = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        senha_func = new javax.swing.JPasswordField();
 
         setClosable(true);
         setTitle("Cadastro de Funcionários");
 
         jLabel1.setText("Nome:");
 
-        jLabel2.setText("Data de Nascimento:");
+        jLabel2.setText("Senha:");
 
         jLabel3.setText("Cargo:");
 
@@ -65,13 +66,19 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Salário:");
 
+        senha_func.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senha_funcActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
@@ -86,14 +93,14 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
                             .addComponent(cpf_func)
                             .addComponent(salario_func)
                             .addComponent(cargo_func, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
+                            .addComponent(login_func)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(senha_func)))
                 .addContainerGap(206, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(320, Short.MAX_VALUE)
                 .addComponent(save_button_func)
                 .addGap(107, 107, 107))
         );
@@ -119,11 +126,11 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(login_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senha_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(save_button_func)
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -147,13 +154,17 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
 
     private void save_button_funcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_button_funcActionPerformed
        try{
-        Empresa empresa = new Empresa();
         // salvar funcionario:
         String nome = nome_func.getText();
         String CPF = cpf_func.getText();
         float salario = Float.parseFloat(salario_func.getText());
         String cargo = cargo_func.getText();
-       // empresa.CadastrarFunc(nome, CPF, salario, cargo);
+        String login = login_func.getText();
+        String senha = senha_func.getText();
+       
+        Operador func = new Operador(nome, CPF, salario, cargo, login, senha);
+        Empresa.addFuncionario(func);
+        Empresa.salvarFuncionarios();
        
        /* DefaultTableModel Flist = (DefaultTableModel) jTable.getModel();
         Object[] dados= {nome,CPF, salario,cargo};
@@ -168,6 +179,10 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
        }
     }//GEN-LAST:event_save_button_funcActionPerformed
 
+    private void senha_funcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senha_funcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senha_funcActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cargo_func;
@@ -179,10 +194,10 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField login_func;
     private javax.swing.JTextField nome_func;
     private javax.swing.JTextField salario_func;
     private javax.swing.JButton save_button_func;
+    private javax.swing.JPasswordField senha_func;
     // End of variables declaration//GEN-END:variables
 }
